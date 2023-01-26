@@ -2,11 +2,15 @@
 $adminSqlLogin = "cloudadmin"
 $password = Read-Host "Your username is 'cloudadmin'. Please enter a password for your Azure SQL Database server that meets the password requirements"
 # Prompt for local ip address
-$ipAddress = Read-Host "Disconnect your VPN, open PowerShell on your machine and run '(Invoke-WebRequest -Uri "https://ipinfo.io/ip").Content'. Please enter the value (include periods) next to 'Address': "
+# $ipAddress = Read-Host "Disconnect your VPN, open PowerShell on your machine and run '(Invoke-WebRequest -Uri "https://ipinfo.io/ip").Content'. Please enter the value (include periods) next to 'Address': "
+
+# $ipAddress = (Invoke-WebRequest -Uri "https://ipinfo.io/ip").Content
+$ipAddress = "203.219.214.117"
 # Get resource group and location and random string
-$resourceGroupName = "Sandbox resource group name"
+$resourceGroupName = "serverless-fullstack-bus-app"
 $resourceGroup = Get-AzResourceGroup | Where ResourceGroupName -like $resourceGroupName
-$uniqueID = Get-Random -Minimum 100000 -Maximum 1000000
+# $uniqueID = Get-Random -Minimum 100000 -Maximum 1000000
+$uniqueID = 834169
 $location = $resourceGroup.Location
 # The logical server name has to be unique in the system
 $serverName = "bus-server$($uniqueID)"
