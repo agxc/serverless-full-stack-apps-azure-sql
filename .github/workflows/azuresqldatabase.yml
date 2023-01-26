@@ -21,4 +21,4 @@ jobs:
           server-name: bus-server834169.database.windows.net
           connection-string: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}
           # uses dacpac to deploy database schema
-          dacpac-package: './Database/dacpac/bus-db.dacpac'
+          dacpac-package: './database/dacpac/bus-db.dacpac'
